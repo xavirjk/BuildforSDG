@@ -1,4 +1,3 @@
-/* eslint linebreak-style: ["error", "windows"] */
 class App {
   constructor() {
     this.cases = 0;
