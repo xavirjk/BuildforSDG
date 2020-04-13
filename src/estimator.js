@@ -41,7 +41,7 @@ class App {
     if (this.periodType.toLowerCase() === 'weeks') {
       this.timeToElapse *= 7;
     } else if (this.periodType.toLowerCase() === 'months') {
-      this.timeToElapse *= 30;
+      this.timeToElapse *= 28;
     }
   }
 
