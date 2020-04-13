@@ -108,7 +108,7 @@ class App {
     this.severeImpact.hospitalBedsByRequestedTime = AvailBeds - casesB;
   }
 }
-const helper = (data) => {
+const passToHelper = (data) => {
   const app = new App();
   app.setData(data);
   app.estimateCurrentlyInfected();
@@ -123,7 +123,7 @@ const helper = (data) => {
 
 const covid19ImpactEstimator = (data) => {
   const inputData = data;
-  const res = helper(inputData);
+  const res = passToHelper(inputData);
   return {
     data: inputData,
     impact: res.impact,
