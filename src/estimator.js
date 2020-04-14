@@ -10,7 +10,7 @@ class App {
     this.impact = {
       currentlyInfected: '',
       infectionsByRequestedTime: '',
-      mildCasesByRequestedTime: '',
+      casesByRequestedTime: '',
       hospitalBedsByRequestedTime: '',
       casesForICUByRequestedTime: '',
       casesForVentilatorsByRequestedTime: '',
@@ -41,7 +41,7 @@ class App {
     if (this.periodType.toLowerCase() === 'weeks') {
       this.timeToElapse *= 7;
     } else if (this.periodType.toLowerCase() === 'months') {
-      this.timeToElapse *= 28;
+      this.timeToElapse *= 30;
     }
   }
 
@@ -64,7 +64,7 @@ class App {
     this.mild = this.impact.infectionsByRequestedTime;
     this.severe = this.severeImpact.infectionsByRequestedTime;
     this.impact
-      .mildCasesByRequestedTime = parseInt((15 / 100) * this.mild, 10);
+      .casesByRequestedTime = parseInt((15 / 100) * this.mild, 10);
     this.severeImpact
       .severeCasesByRequestedTime = parseInt((15 / 100) * this.severe, 10);
   }
@@ -100,7 +100,7 @@ class App {
   }
 
   estimateHospitalBedsByReqTime() {
-    const casesA = this.impact.mildCasesByRequestedTime;
+    const casesA = this.impact.casesByRequestedTime;
     const casesB = this.severeImpact.severeCasesByRequestedTime;
     const AvailBeds = parseInt((35 / 100) * this.totalHosBeds, 10);
     this.impact.hospitalBedsByRequestedTime = AvailBeds - casesA;
